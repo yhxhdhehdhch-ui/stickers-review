@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>ضبطني واضبطك ⭐</title>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffb703, #fb8500);
+      direction: rtl;
+      text-align: center;
+      color: #333;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #fb8500;
+      margin-bottom: 5px;
+      font-size: 28px;
+    }
+
+    .slogan {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin-top: 10px;
+      color: #333;
+    }
+
+    input, textarea, select, button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: none;
+      height: 90px;
+    }
+
+    button {
+      background: #ffb703;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #fb8500;
+      color: #fff;
+    }
+
+    .msg {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .contact {
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px dashed #ddd;
+    }
+
+    .contact h3 {
+      margin-bottom: 10px;
+    }
+
+    .whatsapp {
+      display: block;
+      margin: 8px 0;
+      padding: 10px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .whatsapp:hover {
+      opacity: 0.9;
+    }
+
+    .privacy {
+      font-size: 12px;
+      color: #777;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>ضبطني واضبطك</h1>
+    <div class="slogan">ستكرات تضبط مزاجك وتوصل فكرتك</div>
+
+    <h2>قيّم تجربتك معنا</h2>
+
+    <form id="reviewForm">
+      <input type="text" name="name" placeholder="اسمك (اختياري)">
+
+      <select name="rating" required>
+        <option value="">اختر التقييم</option>
+        <option value="⭐">⭐</option>
+        <option value="⭐⭐">⭐⭐</option>
+        <option value="⭐⭐⭐">⭐⭐⭐</option>
+        <option value="⭐⭐⭐⭐">⭐⭐⭐⭐</option>
+        <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐</option>
+      </select>
+
+      <textarea name="comment" placeholder="اكتب رأيك بكل صراحة 🤍" required></textarea>
+
+      <button type="submit">إرسال التقييم</button>
+    </form>
+
+    <div id="msg" class="msg"></div>
+
+    <div class="contact">
+      <h3>📞 للطلب والتواصل</h3>
+
+      <a class="whatsapp" href="https://wa.me/97333137191" target="_blank">
+        واتساب: 3313 7191
+      </a>
+
+      <a class="whatsapp" href="https://wa.me/97332099809" target="_blank">
+        واتساب: 3209 9809
+      </a>
+    </div>
+
+    <div class="privacy">
+      🔒 لا نطلب أي بيانات شخصية، رأيك يهمنا فقط
+    </div>
+
+  </div>
+
+  <script>
+    (function(){
+      emailjs.init("NbFcmIFVjZ1TTOiQw");
+    })();
+
+    document.getElementById("reviewForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_o9qvw2r",
+        "template_kd5d1dp",
+        this
+      ).then(function(){
+        document.getElementById("msg").innerText = "✅ شكرًا لك، تم إرسال تقييمك";
+        document.getElementById("reviewForm").reset();
+      }, function(){
+        document.getElementById("msg").innerText = "❌ حصل خطأ، حاول مرة أخرى";
+      });
+    });
+  </script>
+
+</body>
+  </html>
