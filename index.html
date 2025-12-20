@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ضبطني واضبطك</title>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("NbFcmIFVjZ1TTOiQw");
+})();
+</script>
+
+<style>
+body{
+  margin:0;
+  font-family: Tahoma, Arial;
+  background:#0f172a;
+  color:#fff;
+}
+header{
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+  padding:30px;
+  text-align:center;
+}
+header h1{
+  margin:0;
+  font-size:30px;
+}
+header p{
+  margin-top:8px;
+  opacity:.9;
+}
+section{
+  padding:20px;
+}
+.card{
+  background:#1e293b;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+.card h2{
+  margin-top:0;
+  color:#22c55e;
+}
+.menu img{
+  width:100%;
+  border-radius:14px;
+  margin:12px 0;
+}
+.price{
+  background:#22c55e;
+  color:#000;
+  padding:12px;
+  border-radius:12px;
+  margin-top:10px;
+  font-weight:bold;
+  text-align:center;
+}
+input, textarea, select, button{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  margin-top:10px;
+  font-size:15px;
+}
+button{
+  background:#22c55e;
+  cursor:pointer;
+  font-weight:bold;
+}
+footer{
+  text-align:center;
+  padding:20px;
+  font-size:14px;
+  opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>ضبطني واضبطك</h1>
+  <p>ستكرات مميزة ✨ أسعار تنافسية</p>
+</header>
+
+<!-- المنيو -->
+<section class="menu">
+
+<div class="card">
+  <h2>ستكرات العبارات</h2>
+  <img src="phrases.jpg" alt="ستكرات العبارات">
+  <div class="price">
+    الكل بـ 3 دنانير 💰<br>
+    الحبة بـ 1 ربية
+  </div>
+</div>
+
+<div class="card">
+  <h2>ستكرات القهوة ☕</h2>
+  <img src="coffee.jpg" alt="ستكرات القهوة">
+  <div class="price">
+    الكل بـ 9 ربيات ☕<br>
+    الحبة بـ 1 ربية
+  </div>
+</div>
+
+<div class="card">
+  <h2>ستكرات تلصيق الثلاجة 🧲</h2>
+  <img src="fridge.jpg" alt="ستكرات تلصيق الثلاجة">
+  <div class="price">
+    الكل بـ 8 ربيات 🧲<br>
+    الحبة بـ 1 ربية
+  </div>
+</div>
+
+<div class="card">
+  <h2>ستكرات مناطق البحرين 🇧🇭</h2>
+  <img src="bahrain.jpg" alt="ستكرات مناطق البحرين">
+  <div class="price">
+    الكل بـ 9 ربيات 🇧🇭<br>
+    الحبة بـ 1 ربية
+  </div>
+</div>
+
+<div class="card">
+  <h2>للطلب والتواصل</h2>
+  <p>📱 واتساب:</p>
+  <p>+973 3313 7191</p>
+  <p>+973 3209 9809</p>
+</div>
+
+</section>
+
+<!-- التقييم -->
+<section>
+
+<div class="card">
+  <h2>قيّم تجربتك ⭐</h2>
+
+  <input type="text" id="name" placeholder="اسمك (اختياري)">
+  
+  <select id="rating">
+    <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ ممتاز</option>
+    <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ جيد جدًا</option>
+    <option value="⭐⭐⭐">⭐⭐⭐ جيد</option>
+    <option value="⭐⭐">⭐⭐ مقبول</option>
+    <option value="⭐">⭐ سيئ</option>
+  </select>
+
+  <textarea id="comment" placeholder="اكتب رأيك"></textarea>
+
+  <button onclick="sendReview()">إرسال التقييم</button>
+</div>
+
+</section>
+
+<footer>
+© ضبطني واضبطك – جميع الحقوق محفوظة
+</footer>
+
+<script>
+function sendReview(){
+  emailjs.send("service_o9qvw2r","template_kd5d1dp",{
+    name: document.getElementById("name").value,
+    rating: document.getElementById("rating").value,
+    comment: document.getElementById("comment").value
+  }).then(function(){
+    alert("تم إرسال التقييم بنجاح 🌟");
+  }, function(){
+    alert("حصل خطأ، حاول مرة ثانية");
+  });
+}
+</script>
+
+</body>
+  </html>
